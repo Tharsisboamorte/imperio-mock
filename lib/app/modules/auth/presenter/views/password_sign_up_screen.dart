@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:imperio_mock/app/modules/auth/presenter/widgets/common_button.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
-import 'package:imperio_mock/core/extensions/validation_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 
-class EmailSignUpScreen extends StatefulWidget {
-  const EmailSignUpScreen({super.key});
+class PasswordSignUpScreen extends StatefulWidget {
+  const PasswordSignUpScreen({super.key});
 
   @override
-  State<EmailSignUpScreen> createState() => _EmailSignUpScreenState();
+  State<PasswordSignUpScreen> createState() => _PasswordSignUpScreenState();
 }
 
-class _EmailSignUpScreenState extends State<EmailSignUpScreen> {
-  final TextEditingController emailController = TextEditingController();
-  bool isValid = false;
+class _PasswordSignUpScreenState extends State<PasswordSignUpScreen> {
+  final TextEditingController passwordController = TextEditingController();
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class _EmailSignUpScreenState extends State<EmailSignUpScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Qual o seu e-mail?',
+              'Qual sua senha?',
               style: context.theme.textTheme.headlineMedium,
             ),
             Padding(
@@ -41,16 +40,22 @@ class _EmailSignUpScreenState extends State<EmailSignUpScreen> {
               child: TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.emailAddress,
-                controller: emailController,
-                validator: (email) {
-                  if (!emailController.text.isEmail) {
-                    return 'E-mail inválido';
-                  }
-                  isValid = true;
-                  return null;
-                },
-                decoration: const InputDecoration(
-                  hintText: 'manoel.rodolfo@email.com',
+                controller: passwordController,
+                obscureText: _isPasswordVisible,
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    },
+                    icon: Icon(
+                      !_isPasswordVisible
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                    ),
+                  ),
+                  hintText: 'Senha',
                 ),
               ),
             ),
