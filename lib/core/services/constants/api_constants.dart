@@ -1,13 +1,13 @@
 class ApiConstants {
   static const String kBaseUrl = 'https://6569cc7dde53105b0dd7af5c.mockapi.io';
 
-  static String kAuth = '/login';
+  static String kAuth = '$kBaseUrl/login';
 
-  static String kSportsList = '/sports';
+  static String kSportsList = '$kBaseUrl/sports';
 
-  static String kChampionships = '/championships';
+  static String kChampionships = '$kBaseUrl/championships';
 
-  static String kMatches = '/matches';
+  static String kMatches = '$kBaseUrl/matches';
 
   static String kBetsFromTheMatch = '$kMatches/{id}/bets';
 
@@ -15,11 +15,11 @@ class ApiConstants {
 
   static String kTeamsLastMatches = '$kMatches/{id}/last_matches';
 
-  static String kBonusList = '/bonus';
+  static String kBonusList = '$kBaseUrl/bonus';
 
-  static String kWonBets = '/won_bets';
+  static String kWonBets = '$kBaseUrl/won_bets';
 
-  static String kTipsList = '/tips';
+  static String kTipsList = '$kBaseUrl/tips';
 
   static String kDetailsFromMatch = '$kBaseUrl/matches/{id}';
 }
