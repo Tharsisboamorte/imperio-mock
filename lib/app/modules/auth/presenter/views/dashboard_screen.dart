@@ -5,9 +5,16 @@ import 'package:imperio_mock/app/modules/auth/presenter/widgets/social_sign_in_c
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
+  static const routeName = '/dashboard';
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

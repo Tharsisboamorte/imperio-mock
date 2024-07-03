@@ -7,6 +7,8 @@ import 'package:imperio_mock/core/res/colors.dart';
 class EmailSignUpScreen extends StatefulWidget {
   const EmailSignUpScreen({super.key});
 
+  static const routeName = '/email-sign-up';
+
   @override
   State<EmailSignUpScreen> createState() => _EmailSignUpScreenState();
 }

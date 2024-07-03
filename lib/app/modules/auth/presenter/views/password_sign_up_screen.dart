@@ -6,6 +6,8 @@ import 'package:imperio_mock/core/res/colors.dart';
 class PasswordSignUpScreen extends StatefulWidget {
   const PasswordSignUpScreen({super.key});
 
+  static const routeName = '/password-sign-up';
+
   @override
   State<PasswordSignUpScreen> createState() => _PasswordSignUpScreenState();
 }

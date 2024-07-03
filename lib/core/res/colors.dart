@@ -11,4 +11,9 @@ class AppColors {
 
   static const textSecondaryColor = Color(0xFF505854);
 
+  static const textDisabled = Color(0xFFC0C4C2);
+
+  static const gradientTopColor = Color(0xFFC4B23A);
+
+  static const borderLightColor = Color(0xFFF1F1F1);
 }
