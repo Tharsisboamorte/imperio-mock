@@ -27,7 +27,7 @@ class AppTheme {
       fontWeight: FontWeight.w500,
     ),
     titleLarge: GoogleFonts.montserrat(
-      fontSize: 20,
+      fontSize: 22,
       fontWeight: FontWeight.w600,
       letterSpacing: 0.15,
     ),
@@ -89,5 +89,6 @@ class AppTheme {
       ),
     ),
   );
+
 
 }

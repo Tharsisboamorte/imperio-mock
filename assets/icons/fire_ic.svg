@@ -1,0 +1,27 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_7_2271)">
+<path d="M6.66769 7.78004C6.56082 8.92004 6.48582 10.9375 7.15894 11.7963C7.15894 11.7963 6.84207 9.58004 9.68269 6.79942C10.8264 5.68004 11.0908 4.15754 10.6914 3.01567C10.4646 2.36879 10.0502 1.83442 9.69019 1.46129C9.48019 1.24192 9.64144 0.880045 9.94707 0.89317C11.7958 0.97567 14.7921 1.48942 16.0652 4.68442C16.6239 6.08692 16.6652 7.53629 16.3989 9.01004C16.2302 9.95129 15.6302 12.0438 16.9989 12.3007C17.9758 12.4844 18.4483 11.7082 18.6602 11.1494C18.7483 10.9169 19.0539 10.8588 19.2189 11.0444C20.8689 12.9213 21.0096 15.1319 20.6683 17.035C20.0083 20.7138 16.2827 23.3913 12.5814 23.3913C7.95769 23.3913 4.27707 20.7457 3.32269 15.9569C2.93832 14.0238 3.13332 10.1988 6.11457 7.49879C6.33582 7.29629 6.69769 7.47629 6.66769 7.78004Z" fill="url(#paint0_radial_7_2271)"/>
+<path d="M14.2708 14.6593C12.5664 12.4655 13.3295 9.9624 13.7476 8.9649C13.8039 8.83365 13.6539 8.7099 13.5358 8.79053C12.8026 9.28928 11.3008 10.463 10.6014 12.1149C9.6545 14.348 9.722 15.4412 10.2826 16.7762C10.6201 17.5805 10.2283 17.7512 10.0314 17.7812C9.84013 17.8112 9.66388 17.6837 9.52325 17.5505C9.1187 17.1621 8.83041 16.6687 8.69075 16.1255C8.66075 16.0093 8.50888 15.9774 8.4395 16.073C7.9145 16.7987 7.64263 17.963 7.6295 18.7862C7.58825 21.3305 9.69013 23.393 12.2326 23.393C15.437 23.393 17.7714 19.8493 15.9301 16.8868C15.3958 16.0243 14.8933 15.4599 14.2708 14.6593Z" fill="url(#paint1_radial_7_2271)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_7_2271" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11.6656 23.4496) rotate(-179.751) scale(13.2352 21.7163)">
+<stop offset="0.314" stop-color="#C0A306"/>
+<stop offset="0.662" stop-color="#CAB314"/>
+<stop offset="0.972" stop-color="#F2D617"/>
+</radialGradient>
+<radialGradient id="paint1_radial_7_2271" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12.4089 10.279) rotate(90.5787) scale(13.8481 10.4217)">
+<stop offset="0.214" stop-color="#FFF176"/>
+<stop offset="0.328" stop-color="#FFF27D"/>
+<stop offset="0.487" stop-color="#FFF48F"/>
+<stop offset="0.672" stop-color="#FFF7AD"/>
+<stop offset="0.793" stop-color="#FFF9C4"/>
+<stop offset="0.822" stop-color="#FFF8BD" stop-opacity="0.804"/>
+<stop offset="0.863" stop-color="#FFF6AB" stop-opacity="0.529"/>
+<stop offset="0.91" stop-color="#FFF38D" stop-opacity="0.209"/>
+<stop offset="0.941" stop-color="#FFF176" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_7_2271">
+<rect width="24" height="24" fill="white" transform="translate(0 0.143066)"/>
+</clipPath>
+</defs>
+</svg>

@@ -7,11 +7,16 @@ class MediaRes {
   //Images
   static const loginHeader = '$_baseImage/login_header.jpeg';
   static const logo = '$_baseImage/logo.svg';
+  static const user = '$_baseImage/profile_pic.jpg';
+  static const leagueLogo = '$_baseImage/league_of_its_own_logo.png';
+  static const nbaPlayer = '$_baseImage/nba_player.png';
+  static const soccerPlayer = '$_baseImage/soccer_player.png';
 
   //Icons
   static const googleIcon = '$_baseIcon/google_ic.svg';
   static const appleIcon = '$_baseIcon/apple_ic.svg';
   static const bookmarkIcon = '$_baseIcon/bookmark_ic.svg';
+  static const homeIcon = '$_baseIcon/home_ic.svg';
   static const couponIcon = '$_baseIcon/coupon_ic.svg';
   static const favoritesIcon = '$_baseIcon/favorites_ic.svg';
   static const groupSportsIcon = '$_baseIcon/groupsports_ic.svg';
@@ -27,4 +32,8 @@ class MediaRes {
   static const volleyballIcon = '$_baseIcon/volleyball_ic.svg';
   static const controllerIcon = '$_baseIcon/controller_ic.svg';
   static const boxingIcon = '$_baseIcon/boxing_ic.svg';
+  static const fireIcon = '$_baseIcon/fire_ic.svg';
+  static const bookmarkFilledIcon = '$_baseIcon/bookmark_filled_ic.svg';
+  static const groupsportsFilledIcon = '$_baseIcon/groupsports_filled_ic.svg';
+  static const homeFilledIcon = '$_baseIcon/home_filled_ic.svg';
 }
