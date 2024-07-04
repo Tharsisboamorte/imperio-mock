@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/HomeBottomNav.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/home_tab_bar.dart';
+import 'package:imperio_mock/app/modules/home/presenter/widgets/league_card.dart';
+import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,8 +37,17 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Column(
           children: [
-            Expanded(child: SingleChildScrollView()),
-            HomeBottomNav()
+            SizedBox(
+              height: context.height * .65,
+              child: const SingleChildScrollView(
+                child: Column(
+                  children: [
+                    LeagueCardCarousel(),
+                  ],
+                ),
+              ),
+            ),
+            const HomeBottomNav(),
           ],
         ),
       ),
