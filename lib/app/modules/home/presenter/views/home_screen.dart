@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/HomeBottomNav.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/home_tab_bar.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/league_card.dart';
+import 'package:imperio_mock/app/modules/home/presenter/widgets/main_bonus_bets.dart';
+import 'package:imperio_mock/app/modules/home/presenter/widgets/popular_championships_row.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
+import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +18,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    initHome();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     LeagueCardCarousel(),
+                    PopularChampionshipsRow(),
+                    BestBonusBets(),
                   ],
                 ),
               ),

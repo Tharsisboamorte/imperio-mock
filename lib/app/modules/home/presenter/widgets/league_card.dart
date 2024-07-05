@@ -32,12 +32,10 @@ class LeagueCardCarousel extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 306,
+      height: 226,
       width: double.maxFinite,
       child: ListView.separated(
-        separatorBuilder: (context, _) => const SizedBox(
-          width: 25,
-        ),
+        separatorBuilder: (context, _) => const SizedBox(width: 25),
         scrollDirection: Axis.horizontal,
         itemCount: carouselItems.length,
         padding: const EdgeInsets.only(left: 15, right: 25),
@@ -90,7 +88,7 @@ class LeagueCardCarousel extends StatelessWidget {
                 ),
                 Positioned(
                   left: 121,
-                  top: -87,
+                  top: -4,
                   right: -1,
                   bottom: 24,
                   child: Image.asset(

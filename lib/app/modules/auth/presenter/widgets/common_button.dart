@@ -15,7 +15,7 @@ class CommonButton extends StatelessWidget {
   });
 
   final bool isFilledButton;
-  final Function? onPressed;
+  final VoidCallback? onPressed;
   final double width;
   final bool isThereIcon;
   final String label;
@@ -39,7 +39,7 @@ class CommonButton extends StatelessWidget {
                 ),
               ),
             ),
-            onPressed: () => onPressed,
+            onPressed: onPressed,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -73,7 +73,7 @@ class CommonButton extends StatelessWidget {
                 Colors.white,
               ),
             ),
-            onPressed: () => onPressed,
+            onPressed: onPressed,
             child: Text(
               label,
               style: const TextStyle(

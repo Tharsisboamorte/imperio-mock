@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:imperio_mock/app/modules/home/domain/entities/tip.dart';
 import 'package:imperio_mock/core/components/tag_card.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/media_res.dart';
 
 class TipsContainer extends StatelessWidget {
   const TipsContainer({
-    required this.imgUrl,
-    required this.title,
-    required this.description,
+    required this.tips,
     super.key,
   });
 
-  final String imgUrl;
-  final String title;
-  final String description;
+  final List<LocalTip> tips;
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +47,6 @@ class TipsContainer extends StatelessWidget {
                       BoxShadow(
                         color: Color(0x1E000000),
                         blurRadius: 10,
-                        offset: Offset(0, 0),
-                        spreadRadius: 0,
                       ),
                     ],
                   ),
@@ -63,17 +58,17 @@ class TipsContainer extends StatelessWidget {
                         width: double.maxFinite,
                         height: 141,
                         child: Image.network(
-                          imgUrl,
+                          tips[index].imgUrl,
                           fit: BoxFit.cover,
                         ),
                       ),
                       Text(
-                        title,
+                        tips[index].title,
                         softWrap: true,
                         style: context.theme.textTheme.titleSmall,
                       ),
                       Text(
-                        description,
+                        tips[index].description,
                         overflow: TextOverflow.ellipsis,
                         softWrap: false,
                         style: context.theme.textTheme.bodySmall,
