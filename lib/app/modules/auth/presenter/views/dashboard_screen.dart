@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:imperio_mock/app/modules/auth/presenter/bloc/auth_bloc.dart';
 import 'package:imperio_mock/app/modules/auth/presenter/widgets/common_sign_in_row.dart';
 import 'package:imperio_mock/app/modules/auth/presenter/widgets/dashboard_header.dart';
 import 'package:imperio_mock/app/modules/auth/presenter/widgets/social_sign_in_column.dart';
@@ -19,47 +21,56 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              top: 7,
-              bottom: context.height * .09,
-              left: 8,
-              right: 8,
-            ),
-            child: const DashboardHeader(),
-          ),
-          const SocialSignInColumn(),
-          Padding(
-            padding: const EdgeInsets.all(41),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: BlocConsumer<AuthBloc, AuthState >(
+        listener: (context, state) {
+
+        },
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Column(
               children: [
-                const Expanded(
-                  child: Divider(
-                    thickness: 1,
-                    color: AppColors.secondaryColor,
-                  ),
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25),
-                  child: Text(
-                    'ou entre com',
-                    style: context.theme.textTheme.titleSmall,
+                  padding: EdgeInsets.only(
+                    top: 7,
+                    bottom: context.height * .09,
+                    left: 8,
+                    right: 8,
+                  ),
+                  child: const DashboardHeader(),
+                ),
+                const SocialSignInColumn(),
+                Padding(
+                  padding: const EdgeInsets.all(41),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: AppColors.secondaryColor,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25, right: 25),
+                        child: Text(
+                          'ou entre com',
+                          style: context.theme.textTheme.titleSmall,
+                        ),
+                      ),
+                      const Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: AppColors.secondaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const Expanded(
-                  child: Divider(
-                    thickness: 1,
-                    color: AppColors.secondaryColor,
-                  ),
-                ),
+                const CommonSignInRow(),
               ],
             ),
-          ),
-          const CommonSignInRow(),
-        ],
+          );
+        },
       ),
     );
   }

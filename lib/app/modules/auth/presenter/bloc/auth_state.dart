@@ -25,6 +25,28 @@ class SignedIn extends AuthState {
   List<Object> get props => [authUser];
 }
 
+class CachingUser extends AuthState {
+  const CachingUser();
+}
+
+class UserCached extends AuthState {
+  const UserCached();
+}
+
+class CheckingIfUserLogged extends AuthState {
+  const CheckingIfUserLogged();
+}
+
+class CheckedIfUserLogged extends AuthState {
+  const CheckedIfUserLogged({required bool userIsLogged})
+      : _userIsLogged = userIsLogged;
+
+  final bool _userIsLogged;
+
+  @override
+  List<bool> get props => [_userIsLogged];
+}
+
 class AuthError extends AuthState {
   const AuthError(this.message);
 

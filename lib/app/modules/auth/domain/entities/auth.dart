@@ -17,4 +17,9 @@ class LocalAuth extends Equatable {
 
   @override
   List<Object?> get props => [authToken,refreshToken];
+
+  @override
+  String toString() {
+    return 'Auth {authToken: $authToken, refreshToken: $refreshToken}';
+  }
 }

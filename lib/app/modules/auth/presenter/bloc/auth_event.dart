@@ -2,6 +2,9 @@ part of 'auth_bloc.dart';
 
 sealed class AuthEvent extends Equatable {
   const AuthEvent();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class SignInEvent extends AuthEvent {
@@ -15,4 +18,12 @@ class SignInEvent extends AuthEvent {
 
   @override
   List<Object?> get props => [email, password];
+}
+
+class CacheUserEvent extends AuthEvent{
+  const CacheUserEvent();
+}
+
+class CheckUserLoggedEvent extends AuthEvent{
+  const CheckUserLoggedEvent();
 }
