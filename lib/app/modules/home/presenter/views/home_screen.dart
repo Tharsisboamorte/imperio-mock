@@ -9,6 +9,7 @@ import 'package:imperio_mock/app/modules/home/presenter/widgets/main_bonus_bets.
 import 'package:imperio_mock/app/modules/home/presenter/widgets/match_container.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/popular_championships_row.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/tips_container.dart';
+import 'package:imperio_mock/core/components/loading_column.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';
 
@@ -25,10 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     initHome();
-    context.read<HomeBloc>().add(const TipsLoadedEvent());
-    context.read<HomeBloc>().add(const BetsLoadedEvent());
-    context.read<HomeBloc>().add(const ChampionshipsLoadedEvent());
-    context.read<HomeBloc>().add(const BonusLoadedEvent());
+    context.read<HomeBloc>().add(const InfoLoadedEvent());
     super.initState();
   }
 
@@ -42,40 +40,51 @@ class _HomeScreenState extends State<HomeScreen> {
       body: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          final listOfTips = context.read<HomeBloc>().listOfTips;
-          final listOfBonus = context.read<HomeBloc>().listOfBonus;
-          final listOfChamps = context.read<HomeBloc>().listOfChamps;
-          final listOfWonBets = context.read<HomeBloc>().listBets;
-
-          return Container(
-            width: double.maxFinite,
-            height: double.maxFinite,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.gradientTopColor.withOpacity(.21),
-                  Colors.white,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.center,
+          if (state is HomeLoading) {
+            return const Center(
+              child: LoadingColumn(),
+            );
+          } else if (state is InfoLoaded) {
+            return Container(
+              width: double.maxFinite,
+              height: double.maxFinite,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.gradientTopColor.withOpacity(.21),
+                    Colors.white,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.center,
+                ),
               ),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const LeagueCardCarousel(),
-                  PopularChampionshipsRow(championships: listOfChamps),
-                  const SizedBox(height: 12),
-                  const MatchContainer(),
-                  const SizedBox(height: 12),
-                  TipsContainer(tips: listOfTips),
-                  BestBonusBets(bonus: listOfBonus),
-                  LastBetsWonContainer(wonBets: listOfWonBets),
-                  const HomeBottomNav(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const LeagueCardCarousel(),
+                    PopularChampionshipsRow(championships: state.listOfChamps),
+                    const SizedBox(height: 12),
+                    if (state.listOfMatches.isEmpty)
+                      const LoadingColumn()
+                    else
+                      MatchContainer(match: state.listOfMatches[0]),
+                    const SizedBox(height: 15),
+                    if (state.listOfMatches.isEmpty)
+                      const LoadingColumn()
+                    else
+                      MatchContainer(match: state.listOfMatches[1]),
+                    const SizedBox(height: 12),
+                    TipsContainer(tips: state.listOfTips),
+                    BestBonusBets(bonus: state.listOfBonus),
+                    LastBetsWonContainer(wonBets: state.listOfWonBets),
+                    const HomeBottomNav(),
+                  ],
+                ),
               ),
-            ),
-          );
+            );
+          } else {
+            return const LoadingColumn();
+          }
         },
       ),
     );

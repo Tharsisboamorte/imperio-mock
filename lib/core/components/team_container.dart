@@ -14,13 +14,20 @@ class TeamContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 78.5,
+      width: 90.5,
       height: 115,
       child: Padding(
         padding: const EdgeInsets.only(top: 39),
         child: Column(
           children: [
-            Image(image: NetworkImage(teamImage)),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 40.5,
+              width: 40.5,
+              child: Image(image: NetworkImage(teamImage)),
+            ),
             SizedBox(height: context.height * .02),
             Text(teamName, style: context.textTheme.bodySmall),
           ],

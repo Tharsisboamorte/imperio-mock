@@ -2,6 +2,14 @@ part of 'router.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case '/':
+      return _pageBuilder(
+        (_) => BlocProvider(
+          create: (_) => sl<AuthBloc>(),
+          child: const SplashScreen(),
+        ),
+        settings: settings,
+      );
     case DashboardScreen.routeName:
       return _pageBuilder(
         (_) => BlocProvider(
@@ -12,7 +20,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case EmailSignUpScreen.routeName:
       return _pageBuilder(
-            (_) => BlocProvider(
+        (_) => BlocProvider(
           create: (_) => sl<AuthBloc>(),
           child: const EmailSignUpScreen(),
         ),
@@ -20,15 +28,15 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case PasswordSignUpScreen.routeName:
       return _pageBuilder(
-            (_) => BlocProvider(
+        (_) => BlocProvider(
           create: (_) => sl<AuthBloc>(),
           child: const PasswordSignUpScreen(),
         ),
         settings: settings,
       );
-    case '/':
+    case HomeScreen.routeName:
       return _pageBuilder(
-            (_) => BlocProvider(
+        (_) => BlocProvider(
           create: (_) => sl<HomeBloc>(),
           child: const HomeScreen(),
         ),

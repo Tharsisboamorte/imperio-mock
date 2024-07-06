@@ -67,7 +67,7 @@ class HomeDataSrcImpl implements HomeDataSrcInterface {
       );
       LogUtil.printLog('WON BETS \n ${response.body}');
       return List<DataMap>.from(jsonDecode(response.body) as List)
-          .map((wonBets) => WonBetsModel.fromMap(wonBets))
+          .map(WonBetsModel.fromMap)
           .toList();
     } catch (e) {
       throw Exception(e);
@@ -96,8 +96,9 @@ class HomeDataSrcImpl implements HomeDataSrcInterface {
         Uri.parse(ApiConstants.kMatches),
       );
       LogUtil.printLog('Matches LIST \n ${response.body}');
+      LogUtil.printLog('Matches LIST \n ${response.body}');
       return List<DataMap>.from(jsonDecode(response.body) as List)
-          .map((matches) => MatchModel.fromMap(matches))
+          .map(MatchModel.fromMap)
           .toList();
     } catch (e) {
       throw Exception(e);

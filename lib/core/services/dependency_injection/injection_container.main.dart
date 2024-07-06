@@ -39,6 +39,7 @@ void initHome() {
         getChampionships: sl(),
         wonBets: sl(),
         getBonusList: sl(),
+        getMatches: sl(),
       ),
     )
     ..registerLazySingleton(() => GetListOfTips(sl()))

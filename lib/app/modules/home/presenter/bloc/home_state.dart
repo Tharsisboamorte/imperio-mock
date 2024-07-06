@@ -19,9 +19,19 @@ class HomeLoading extends HomeState {
 }
 
 class InfoLoaded extends HomeState {
-  const InfoLoaded(this.listOfTips);
+  const InfoLoaded(
+    this.listOfTips,
+    this.listOfMatches,
+    this.listOfWonBets,
+    this.listOfChamps,
+    this.listOfBonus,
+  );
 
   final List<LocalTip> listOfTips;
+  final List<LocalMatch> listOfMatches;
+  final List<WonBets> listOfWonBets;
+  final List<Championships> listOfChamps;
+  final List<Bonus> listOfBonus;
 
   @override
   List<Object> get props => [listOfTips];

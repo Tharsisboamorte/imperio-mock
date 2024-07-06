@@ -24,7 +24,7 @@ class WonBetsModel extends WonBets {
           id: map['id'] as String,
           score: map['score'] as double,
           platform: map['platform'] as String,
-          userAvatar: map['userAvatar'] as String,
+          userAvatar: map['user_avatar'] as String,
           user: map['user'] as String,
         );
 }

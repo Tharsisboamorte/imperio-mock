@@ -11,20 +11,6 @@ class InfoLoadedEvent extends HomeEvent {
   const InfoLoadedEvent();
 }
 
-class TipsLoadedEvent extends HomeEvent {
-  const TipsLoadedEvent();
-}
-class BetsLoadedEvent extends HomeEvent {
-  const BetsLoadedEvent();
-}
-class BonusLoadedEvent extends HomeEvent {
-  const BonusLoadedEvent();
-}
-class ChampionshipsLoadedEvent extends HomeEvent {
-  const ChampionshipsLoadedEvent();
-}
-
-
 class SelectedMatchEvent extends HomeEvent {
   const SelectedMatchEvent({required this.id});
 
