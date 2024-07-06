@@ -33,7 +33,20 @@ Future<void> _initAuth() async {
 
 void initHome() {
   sl
-    ..registerFactory(HomeBloc.new)
+    ..registerFactory(
+      () => HomeBloc(
+        getTips: sl(),
+        getChampionships: sl(),
+        wonBets: sl(),
+        getBonusList: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => GetListOfTips(sl()))
+    ..registerLazySingleton(() => GetListOfBonus(sl()))
+    ..registerLazySingleton(() => GetListOfChampionships(sl()))
+    ..registerLazySingleton(() => GetListOfWonBets(sl()))
+    ..registerLazySingleton(() => GetMatches(sl()))
+    ..registerLazySingleton<HomeRepo>(() => HomeRepoImpl(sl()))
     ..registerLazySingleton<HomeDataSrcInterface>(
       () => HomeDataSrcImpl(client: sl()),
     );

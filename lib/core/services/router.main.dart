@@ -2,7 +2,7 @@ part of 'router.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case '/':
+    case DashboardScreen.routeName:
       return _pageBuilder(
         (_) => BlocProvider(
           create: (_) => sl<AuthBloc>(),
@@ -26,7 +26,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         ),
         settings: settings,
       );
-    case HomeScreen.routeName:
+    case '/':
       return _pageBuilder(
             (_) => BlocProvider(
           create: (_) => sl<HomeBloc>(),

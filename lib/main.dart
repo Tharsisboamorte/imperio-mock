@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:imperio_mock/app/modules/auth/presenter/views/dashboard_screen.dart';
-import 'package:imperio_mock/app/modules/auth/presenter/views/email_sign_up_screen.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 import 'package:imperio_mock/core/res/theme.dart';
+import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';
+import 'package:imperio_mock/core/services/router.dart';
 
-void main() {
+Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(const MyApp());
 }
 
@@ -17,6 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         textTheme: AppTheme().textTheme,
         inputDecorationTheme: AppTheme().inputTheme,
         colorScheme: ColorScheme.fromSwatch(
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
           color: Colors.transparent,
         ),
       ),
-      home: const EmailSignUpScreen(),
+      onGenerateRoute: generateRoute,
     );
   }
 }

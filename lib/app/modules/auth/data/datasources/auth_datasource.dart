@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:imperio_mock/app/modules/auth/data/models/auth_model.dart';
-import 'package:imperio_mock/app/modules/auth/domain/entities/auth.dart';
 import 'package:imperio_mock/core/services/constants/api_constants.dart';
 import 'package:imperio_mock/core/utils/logger_util.dart';
 import 'package:imperio_mock/core/utils/typedef.dart';

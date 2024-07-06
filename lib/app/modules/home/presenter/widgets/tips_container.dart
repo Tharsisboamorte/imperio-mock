@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imperio_mock/app/modules/home/domain/entities/tip.dart';
 import 'package:imperio_mock/core/components/tag_card.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
+import 'package:imperio_mock/core/res/colors.dart';
 import 'package:imperio_mock/core/res/media_res.dart';
 
 class TipsContainer extends StatelessWidget {
@@ -15,88 +16,151 @@ class TipsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text(
-              'Dicas',
-              style: context.theme.textTheme.titleMedium,
-            ),
-            SizedBox(width: context.width * .5),
-            TextButton(
-              child: Text(
-                'Ver todas',
-                style: context.theme.textTheme.titleSmall,
+    return SizedBox(
+      height: 450,
+      width: double.maxFinite,
+      child: Column(
+        children: [
+          const TipsTitle(),
+          SizedBox(
+            width: double.maxFinite,
+            height: 360,
+            child: ListView.separated(
+              itemCount: 4,
+              padding: const EdgeInsets.only(right: 15, left: 15),
+              separatorBuilder: (context, index) => const SizedBox(
+                width: 12,
               ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-        ListView.builder(
-          itemBuilder: (context, index) {
-            return Row(
-              children: [
-                Container(
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x1E000000),
-                        blurRadius: 10,
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    ],
-                  ),
-                  width: 225,
-                  height: 300,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        width: double.maxFinite,
-                        height: 141,
-                        child: Image.network(
-                          tips[index].imgUrl,
-                          fit: BoxFit.cover,
+                      height: 165,
+                      width: 255,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        child: Image(
+                          image: NetworkImage(
+                            tips[index].imgUrl,
+                          ),
+                          fit: BoxFit.fill,
                         ),
                       ),
-                      Text(
-                        tips[index].title,
-                        softWrap: true,
-                        style: context.theme.textTheme.titleSmall,
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.shadowsColor,
+                            blurRadius: 10,
+                            spreadRadius: 2,
+                          ),
+                        ],
                       ),
-                      Text(
-                        tips[index].description,
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: false,
-                        style: context.theme.textTheme.bodySmall,
-                      ),
-                      Row(
+                      padding: const EdgeInsets.only(top: 5, right: 5),
+                      width: 255,
+                      height: 181.5,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TagCard(
-                            label: 'Futebol',
-                            icon: SvgPicture.asset(
-                              MediaRes.footballIcon,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 12,
+                              left: 12,
+                              right: 12,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tips[index].title,
+                                  style: context.theme.textTheme.titleSmall,
+                                  overflow: TextOverflow.ellipsis,
+                                  softWrap: false,
+                                  maxLines: 3,
+                                ),
+                                SizedBox(
+                                  height: context.height * .01,
+                                ),
+                                Text(
+                                  tips[index].description,
+                                  style: context.theme.textTheme.bodyMedium,
+                                  softWrap: false,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                ),
+                              ],
                             ),
                           ),
-                          TagCard(
-                            label: 'Basquete',
-                            icon: SvgPicture.asset(
-                              MediaRes.basketballIcon,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                SizedBox(width: context.width * .02),
+                                TagCard(
+                                  label: 'Futebol',
+                                  icon: SvgPicture.asset(MediaRes.footballIcon),
+                                ),
+                                SizedBox(width: context.width * .02),
+                                TagCard(
+                                  label: 'Basquete',
+                                  icon: SvgPicture.asset(
+                                    MediaRes.basketballIcon,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          },
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TipsTitle extends StatelessWidget {
+  const TipsTitle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(width: context.width * .05),
+        Text(
+          'Dicas',
+          style: context.theme.textTheme.titleLarge,
+        ),
+        SizedBox(width: context.width * .5),
+        Padding(
+          padding: const EdgeInsets.only(top: 6),
+          child: TextButton(
+            child: Text(
+              'Ver todas',
+              style: context.theme.textTheme.titleMedium,
+            ),
+            onPressed: () {},
+          ),
         ),
       ],
     );

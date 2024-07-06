@@ -14,16 +14,16 @@ class TagCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 91,
+      width: 111,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
+          side: const BorderSide(),
         ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Visibility(
             visible: icon != null,

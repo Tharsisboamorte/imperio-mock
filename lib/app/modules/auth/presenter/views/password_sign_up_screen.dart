@@ -5,8 +5,6 @@ import 'package:imperio_mock/app/modules/auth/presenter/widgets/common_button.da
 import 'package:imperio_mock/app/modules/home/presenter/views/home_screen.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
-import 'package:imperio_mock/core/utils/logger_util.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PasswordSignUpScreen extends StatefulWidget {
   const PasswordSignUpScreen({super.key});

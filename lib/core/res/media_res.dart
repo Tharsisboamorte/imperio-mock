@@ -11,6 +11,9 @@ class MediaRes {
   static const leagueLogo = '$_baseImage/league_of_its_own_logo.png';
   static const nbaPlayer = '$_baseImage/nba_player.png';
   static const soccerPlayer = '$_baseImage/soccer_player.png';
+  static const betssonLogo = '$_baseImage/betsson_logo.jpg';
+  static const betsafeLogo = '$_baseImage/betsafe_logo.jpg';
+  static const xbetLogo = '$_baseImage/1xbet_logo.jpg';
 
   //Icons
   static const googleIcon = '$_baseIcon/google_ic.svg';

@@ -68,7 +68,7 @@ class _HomeBottomNavState extends State<HomeBottomNav>
               SizedBox(width: context.width * .05),
               const ProfileAvatar(),
             ],
-          )
+          ),
         ],
       ),
     );

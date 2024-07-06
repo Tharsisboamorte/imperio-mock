@@ -29,7 +29,7 @@ class _HomeTabBarState extends State<HomeTabBar> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 11,
+      length: 4,
       child: AppBar(
         backgroundColor: AppColors.gradientTopColor.withOpacity(.21),
         centerTitle: true,
@@ -68,34 +68,6 @@ class _HomeTabBarState extends State<HomeTabBar> with TickerProviderStateMixin {
             TabItem(
               iconAsset: MediaRes.controllerIcon,
               tabLabel: 'E-Sports',
-            ),
-            TabItem(
-              iconAsset: MediaRes.pokerIcon,
-              tabLabel: 'Poker',
-            ),
-            TabItem(
-              iconAsset: MediaRes.muscleIcon,
-              tabLabel: 'MMA',
-            ),
-            TabItem(
-              iconAsset: MediaRes.volleyballIcon,
-              tabLabel: 'Volei',
-            ),
-            TabItem(
-              iconAsset: MediaRes.controllerIcon,
-              tabLabel: 'Cavalos',
-            ),
-            TabItem(
-              iconAsset: MediaRes.boxingIcon,
-              tabLabel: 'Box',
-            ),
-            TabItem(
-              iconAsset: MediaRes.americanFootballIcon,
-              tabLabel: 'Futebol Americano',
-            ),
-            TabItem(
-              iconAsset: MediaRes.tennisIcon,
-              tabLabel: 'Tenis',
             ),
           ],
         ),

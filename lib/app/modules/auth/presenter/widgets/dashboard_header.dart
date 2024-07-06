@@ -70,7 +70,7 @@ class DashboardHeader extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

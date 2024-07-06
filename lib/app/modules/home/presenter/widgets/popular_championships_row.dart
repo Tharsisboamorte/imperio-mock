@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:imperio_mock/app/modules/home/domain/entities/championships.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 
 class PopularChampionshipsRow extends StatelessWidget {
-  const PopularChampionshipsRow({super.key});
+  const PopularChampionshipsRow({required this.championships, super.key});
+
+  final List<Championships> championships;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +49,11 @@ class PopularChampionshipsRow extends StatelessWidget {
                     child: Container(
                       width: 44,
                       height: 52,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
                         image: DecorationImage(
                           image:
-                              NetworkImage('https://via.placeholder.com/44x52'),
+                              NetworkImage(championships[index].image),
                           fit: BoxFit.cover,
                         ),
                       ),

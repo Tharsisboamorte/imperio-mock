@@ -9,8 +9,8 @@ class AppTheme {
       letterSpacing: -1.5,
     ),
     displayMedium: GoogleFonts.montserrat(
-      fontSize: 61,
-      fontWeight: FontWeight.w400,
+      fontSize: 50,
+      fontWeight: FontWeight.w500,
       letterSpacing: -0.5,
     ),
     displaySmall: GoogleFonts.montserrat(

@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:imperio_mock/app/modules/auth/data/models/auth_model.dart';
 import 'package:imperio_mock/app/modules/auth/data/repo/auth_repo.dart';
 import 'package:imperio_mock/app/modules/auth/domain/entities/auth.dart';
 import 'package:imperio_mock/core/usecase/usecase.dart';

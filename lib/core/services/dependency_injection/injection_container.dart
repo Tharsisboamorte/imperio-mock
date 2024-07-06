@@ -7,6 +7,12 @@ import 'package:imperio_mock/app/modules/auth/domain/usecases/check_user_logged.
 import 'package:imperio_mock/app/modules/auth/domain/usecases/sign_in.dart';
 import 'package:imperio_mock/app/modules/auth/presenter/bloc/auth_bloc.dart';
 import 'package:imperio_mock/app/modules/home/data/datasource/home_data_source.dart';
+import 'package:imperio_mock/app/modules/home/data/repo/home_repo.dart';
+import 'package:imperio_mock/app/modules/home/domain/usecases/get_matches.dart';
+import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_bonus.dart';
+import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_championships.dart';
+import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_tips.dart';
+import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_won_bets.dart';
 import 'package:imperio_mock/app/modules/home/presenter/bloc/home_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

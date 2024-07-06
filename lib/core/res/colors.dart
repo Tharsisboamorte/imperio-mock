@@ -9,6 +9,8 @@ class AppColors {
 
   static const textColor = Color(0xFF282C2A);
 
+  static const shadowsColor = Color(0x1E000000);
+
   static const textSecondaryColor = Color(0xFF505854);
 
   static const textDisabled = Color(0xFFC0C4C2);
