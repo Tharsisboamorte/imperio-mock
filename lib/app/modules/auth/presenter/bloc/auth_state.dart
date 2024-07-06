@@ -38,13 +38,12 @@ class CheckingIfUserLogged extends AuthState {
 }
 
 class CheckedIfUserLogged extends AuthState {
-  const CheckedIfUserLogged({required bool userIsLogged})
-      : _userIsLogged = userIsLogged;
+  const CheckedIfUserLogged({required this.userIsLogged});
 
-  final bool _userIsLogged;
+  final bool userIsLogged;
 
   @override
-  List<bool> get props => [_userIsLogged];
+  List<bool> get props => [userIsLogged];
 }
 
 class AuthError extends AuthState {

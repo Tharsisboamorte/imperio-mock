@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:imperio_mock/app/modules/home/presenter/bloc/home_bloc.dart';
-import 'package:imperio_mock/app/modules/home/presenter/widgets/HomeBottomNav.dart';
+import 'package:imperio_mock/app/modules/home/presenter/widgets/help_menu.dart';
+import 'package:imperio_mock/app/modules/home/presenter/widgets/home_bottom_nav.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/home_tab_bar.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/last_bets_won_container.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/league_card.dart';
@@ -30,15 +31,31 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+  bool isVisibleAppBar = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(392, 83),
-        child: HomeTabBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(392, 83),
+        child: Visibility(
+          visible: isVisibleAppBar,
+          child: const HomeTabBar(),
+        ),
       ),
+      bottomNavigationBar: const HomeBottomNav(),
       body: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is OpenMenu) {
+            setState(() {
+              isVisibleAppBar = false;
+            });
+          } else {
+            setState(() {
+              isVisibleAppBar = true;
+            });
+          }
+        },
         builder: (context, state) {
           if (state is HomeLoading) {
             return const Center(
@@ -77,11 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     TipsContainer(tips: state.listOfTips),
                     BestBonusBets(bonus: state.listOfBonus),
                     LastBetsWonContainer(wonBets: state.listOfWonBets),
-                    const HomeBottomNav(),
                   ],
                 ),
               ),
             );
+          } else if (state is OpenMenu) {
+            return const HelpMenu();
           } else {
             return const LoadingColumn();
           }

@@ -33,17 +33,18 @@ class MatchContainer extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TeamContainer(
                   teamName: match.teamA,
                   teamImage: match.teamAImage,
                 ),
                 SizedBox(
-                  width: context.width * .08,
+                  width: context.width * .01,
                 ),
                 const LiveContainer(),
                 SizedBox(
-                  width: context.width * .08,
+                  width: context.width * .01,
                 ),
                 TeamContainer(
                   teamName: match.teamB,

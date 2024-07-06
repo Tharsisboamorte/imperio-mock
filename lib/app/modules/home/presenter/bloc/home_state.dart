@@ -18,6 +18,10 @@ class HomeLoading extends HomeState {
   const HomeLoading();
 }
 
+class OpenMenu extends HomeState {
+  const OpenMenu();
+}
+
 class InfoLoaded extends HomeState {
   const InfoLoaded(
     this.listOfTips,

@@ -4,10 +4,8 @@ import 'package:imperio_mock/app/modules/auth/domain/entities/auth.dart';
 import 'package:imperio_mock/app/modules/auth/domain/usecases/cache_user.dart';
 import 'package:imperio_mock/app/modules/auth/domain/usecases/check_user_logged.dart';
 import 'package:imperio_mock/app/modules/auth/domain/usecases/sign_in.dart';
-import 'package:imperio_mock/core/utils/logger_util.dart';
 
 part 'auth_event.dart';
-
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -19,9 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _cacheUser = cacheUser,
         _checkUserLogged = checkUserLogged,
         super(AuthInitial()) {
-    on<AuthEvent>((event, emit) {
-      emit(const AuthLoading());
-    });
+    on<AuthEvent>((event, emit) {});
     on<SignInEvent>(_signInHandler);
     on<CacheUserEvent>(_cacheUserHandler);
     on<CheckUserLoggedEvent>(_checkUserLoggedHandler);
@@ -56,10 +52,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(const CachingUser());
     final result = await _cacheUser();
-    LogUtil.printLog('CACHINHG INFO: $result');
     result.fold(
       (failure) => emit(AuthError(failure.message)),
-      (_) => emit(const UserCached()),
+      (_) {
+        emit(const UserCached());
+      },
     );
   }
 
@@ -72,7 +69,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     result.fold(
       (failure) => emit(AuthError(failure.message)),
-      (status) => CheckedIfUserLogged(userIsLogged: status),
+      (status) {
+        emit(CheckedIfUserLogged(userIsLogged: status));
+      },
     );
   }
 }

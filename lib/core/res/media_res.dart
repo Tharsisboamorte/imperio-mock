@@ -25,7 +25,7 @@ class MediaRes {
   static const groupSportsIcon = '$_baseIcon/groupsports_ic.svg';
   static const influencerIcon = '$_baseIcon/influencers_ic.svg';
   static const pieChartIcon = '$_baseIcon/pie_chart_ic.svg';
-  static const shieldIcon = '$_baseIcon/shield_football_ic.svg';
+  static const shieldIcon = '$_baseIcon/shield_ic.svg';
   static const americanFootballIcon = '$_baseIcon/american_football_ic.svg';
   static const footballIcon = '$_baseIcon/football_ic.svg';
   static const basketballIcon = '$_baseIcon/basketball_ic.svg';

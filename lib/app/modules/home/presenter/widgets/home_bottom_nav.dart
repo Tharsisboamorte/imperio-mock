@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:imperio_mock/app/modules/home/presenter/bloc/home_bloc.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/bottom_nav_container.dart';
 import 'package:imperio_mock/app/modules/home/presenter/widgets/profile_avatar.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
@@ -35,13 +37,13 @@ class _HomeBottomNavState extends State<HomeBottomNav>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 190,
       width: context.width,
       color: Colors.white,
       child: Column(
         children: [
           SvgPicture.asset(MediaRes.logo),
-          SizedBox(height: context.height * .08),
+          SizedBox(height: context.height * .07),
           Row(
             children: [
               SizedBox(width: context.width * .05),
@@ -52,10 +54,14 @@ class _HomeBottomNavState extends State<HomeBottomNav>
                 onPressed: () {
                   setState(() {
                     isActive = !isActive;
+                    if (isActive) {
+                      _animationController.forward();
+                      context.read<HomeBloc>().add(const OpenMenuEvent());
+                    } else {
+                      _animationController.reverse();
+                      context.read<HomeBloc>().add(const CloseMenuEvent());
+                    }
                   });
-                  isActive == false
-                      ? _animationController.forward()
-                      : _animationController.reverse();
                 },
                 child: AnimatedIcon(
                   icon: AnimatedIcons.menu_close,

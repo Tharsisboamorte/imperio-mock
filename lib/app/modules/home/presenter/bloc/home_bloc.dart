@@ -13,7 +13,6 @@ import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_won_bets.d
 import 'package:imperio_mock/core/utils/logger_util.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -33,6 +32,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(const HomeLoading());
     });
     on<InfoLoadedEvent>(_callInfoHandler);
+    on<OpenMenuEvent>(_openMenu);
+    on<CloseMenuEvent>(_closeMenu);
   }
 
   final GetListOfTips _getTips;
@@ -52,6 +53,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final matches = await _getMatchesHandler();
 
     emit(InfoLoaded(tips, matches, wonBets, champs, bonus));
+  }
+
+  Future<void> _closeMenu(
+    HomeEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    final tips = await _getTipsHandler();
+    final champs = await _getChampionshipsHandler();
+    final bonus = await _getBonusListHandler();
+    final wonBets = await _getWonBetsHandler();
+    final matches = await _getMatchesHandler();
+
+    emit(InfoLoaded(tips, matches, wonBets, champs, bonus));
+  }
+
+  void _openMenu(
+    HomeEvent event,
+    Emitter<HomeState> emit,
+  ) {
+    emit(const OpenMenu());
   }
 
   Future<List<LocalTip>> _getTipsHandler() async {

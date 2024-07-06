@@ -11,6 +11,14 @@ class InfoLoadedEvent extends HomeEvent {
   const InfoLoadedEvent();
 }
 
+class OpenMenuEvent extends HomeEvent {
+  const OpenMenuEvent();
+}
+
+class CloseMenuEvent extends HomeEvent {
+  const CloseMenuEvent();
+}
+
 class SelectedMatchEvent extends HomeEvent {
   const SelectedMatchEvent({required this.id});
 
