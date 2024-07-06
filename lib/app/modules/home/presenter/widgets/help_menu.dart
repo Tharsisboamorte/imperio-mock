@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:imperio_mock/app/modules/sports/presentation/view/sports_screen.dart';
 import 'package:imperio_mock/core/extensions/context_extensions.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 import 'package:imperio_mock/core/res/media_res.dart';
@@ -52,7 +53,9 @@ class FirstRowOptions extends StatelessWidget {
             assetName: MediaRes.groupSportsIcon,
             label: 'Esportes',
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, SportsScreen.routeName);
+          },
         ),
         GestureDetector(
           child: const MenuItem(

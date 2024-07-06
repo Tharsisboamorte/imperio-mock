@@ -24,7 +24,7 @@ class _HomeBottomNavState extends State<HomeBottomNav>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 950),
+      duration: const Duration(milliseconds: 990),
     );
   }
 

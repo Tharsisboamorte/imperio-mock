@@ -14,6 +14,10 @@ import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_championsh
 import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_tips.dart';
 import 'package:imperio_mock/app/modules/home/domain/usecases/list_of_won_bets.dart';
 import 'package:imperio_mock/app/modules/home/presenter/bloc/home_bloc.dart';
+import 'package:imperio_mock/app/modules/sports/data/datasource/sports_datasource.dart';
+import 'package:imperio_mock/app/modules/sports/data/repo/sports_repo.dart';
+import 'package:imperio_mock/app/modules/sports/domain/usecases/get_sports.dart';
+import 'package:imperio_mock/app/modules/sports/presentation/bloc/sports_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'injection_container.main.dart';

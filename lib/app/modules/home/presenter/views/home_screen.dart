@@ -12,7 +12,6 @@ import 'package:imperio_mock/app/modules/home/presenter/widgets/popular_champion
 import 'package:imperio_mock/app/modules/home/presenter/widgets/tips_container.dart';
 import 'package:imperio_mock/core/components/loading_column.dart';
 import 'package:imperio_mock/core/res/colors.dart';
-import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,7 +25,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    initHome();
     context.read<HomeBloc>().add(const InfoLoadedEvent());
     super.initState();
   }

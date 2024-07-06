@@ -42,6 +42,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         ),
         settings: settings,
       );
+    case SportsScreen.routeName:
+      return _pageBuilder(
+        (_) => BlocProvider(
+          create: (_) => sl<SportsBloc>(),
+          child: const SportsScreen(),
+        ),
+        settings: settings,
+      );
     default:
       return _pageBuilder((_) => const LoadingColumn(), settings: settings);
   }

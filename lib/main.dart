@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:imperio_mock/app/modules/auth/presenter/views/splash_screen.dart';
 import 'package:imperio_mock/core/res/colors.dart';
 import 'package:imperio_mock/core/res/theme.dart';
 import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';

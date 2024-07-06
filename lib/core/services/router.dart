@@ -7,6 +7,8 @@ import 'package:imperio_mock/app/modules/auth/presenter/views/password_sign_up_s
 import 'package:imperio_mock/app/modules/auth/presenter/views/splash_screen.dart';
 import 'package:imperio_mock/app/modules/home/presenter/bloc/home_bloc.dart';
 import 'package:imperio_mock/app/modules/home/presenter/views/home_screen.dart';
+import 'package:imperio_mock/app/modules/sports/presentation/bloc/sports_bloc.dart';
+import 'package:imperio_mock/app/modules/sports/presentation/view/sports_screen.dart';
 import 'package:imperio_mock/core/components/loading_column.dart';
 import 'package:imperio_mock/core/services/dependency_injection/injection_container.dart';
 

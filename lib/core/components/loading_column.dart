@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imperio_mock/core/res/colors.dart';
 
 class LoadingColumn extends StatelessWidget {
   const LoadingColumn({super.key,});
@@ -10,7 +11,9 @@ class LoadingColumn extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircularProgressIndicator(),
+          CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ),
           SizedBox(width: 10),
         ],
       ),

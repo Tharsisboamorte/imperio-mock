@@ -4,6 +4,8 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   await _initAuth();
+  await _initHome();
+  await _initSports();
 }
 
 Future<void> _initAuth() async {
@@ -31,7 +33,7 @@ Future<void> _initAuth() async {
     );
 }
 
-void initHome() {
+Future<void> _initHome() async {
   sl
     ..registerFactory(
       () => HomeBloc(
@@ -50,5 +52,15 @@ void initHome() {
     ..registerLazySingleton<HomeRepo>(() => HomeRepoImpl(sl()))
     ..registerLazySingleton<HomeDataSrcInterface>(
       () => HomeDataSrcImpl(client: sl()),
+    );
+}
+
+Future<void> _initSports() async {
+  sl
+    ..registerFactory(() => SportsBloc(getSports: sl()))
+    ..registerLazySingleton(() => GetSports(sl()))
+    ..registerLazySingleton<SportsRepo>(() => SportsRepoImpl(sl()))
+    ..registerLazySingleton<SportsDataSrcInterface>(
+      () => SportsDataSrcImpl(client: sl()),
     );
 }
